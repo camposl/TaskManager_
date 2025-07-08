@@ -1,10 +1,9 @@
-package com.lucas.taskmanager.entites;
+package com.lucas.taskmanager.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
-import java.util.Objects;
 
 @Entity
 @Table(name = "tb_task")
