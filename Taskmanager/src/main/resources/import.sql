@@ -40,15 +40,29 @@ INSERT INTO tb_user_role(user_id, role_id) VALUES (3, 2);
 -- Tabela `tb_task`
 -- -----------------------------------------------------
 -- Tarefas para Ana Silva (user_id = 1)
-INSERT INTO tb_task(title, description, priority, status, dead_line, user_id, category_id) VALUES ('Marcar consulta médica', 'Ligar para o consultório e agendar check-up anual.', 'ALTA', 'PENDENTE', '2025-07-15', 1, 4);
-INSERT INTO tb_task(title, description, priority, status, dead_line, user_id, category_id) VALUES ('Pagar fatura do cartão', 'Vencimento no final do mês. Não esquecer.', 'ALTA', 'PENDENTE', '2025-07-30', 1, 5);
-INSERT INTO tb_task(title, description, priority, status, dead_line, user_id, category_id) VALUES ('Comprar presente de aniversário', 'Presente para o aniversário do João.', 'MEDIA', 'EM_ANDAMENTO', '2025-08-10', 1, 1);
+INSERT INTO tb_task(title, description, priority, status, dead_line, user_id) VALUES ('Marcar consulta médica', 'Ligar para o consultório e agendar check-up anual.', 'ALTA', 'PENDENTE', '2025-07-15', 1);
+INSERT INTO tb_task(title, description, priority, status, dead_line, user_id) VALUES ('Pagar fatura do cartão', 'Vencimento no final do mês. Não esquecer.', 'ALTA', 'PENDENTE', '2025-07-30', 1);
+INSERT INTO tb_task(title, description, priority, status, dead_line, user_id) VALUES ('Comprar presente de aniversário', 'Presente para o aniversário do João.', 'MEDIA', 'EM_ANDAMENTO', '2025-08-10', 1);
 
 -- Tarefas para Carlos Pereira (user_id = 2)
-INSERT INTO tb_task(title, description, priority, status, dead_line, user_id, category_id) VALUES ('Preparar apresentação de vendas', 'Criar os slides para a reunião com o novo cliente.', 'ALTA', 'EM_ANDAMENTO', '2025-07-22', 2, 2);
-INSERT INTO tb_task(title, description, priority, status, dead_line, user_id, category_id) VALUES ('Terminar curso de Spring Boot', 'Finalizar os módulos de segurança e testes.', 'MEDIA', 'CONCLUIDO', '2025-07-05', 2, 3);
-INSERT INTO tb_task(title, description, priority, status, dead_line, user_id, category_id) VALUES ('Responder e-mails urgentes', 'Limpar a caixa de entrada dos e-mails marcados como importantes.', 'BAIXA', 'PENDENTE', '2025-07-11', 2, 2);
+INSERT INTO tb_task(title, description, priority, status, dead_line, user_id) VALUES ('Preparar apresentação de vendas', 'Criar os slides para a reunião com o novo cliente.', 'ALTA', 'EM_ANDAMENTO', '2025-07-22', 2);
+INSERT INTO tb_task(title, description, priority, status, dead_line, user_id) VALUES ('Terminar curso de Spring Boot', 'Finalizar os módulos de segurança e testes.', 'MEDIA', 'CONCLUIDO', '2025-07-05', 2);
+INSERT INTO tb_task(title, description, priority, status, dead_line, user_id) VALUES ('Responder e-mails urgentes', 'Limpar a caixa de entrada dos e-mails marcados como importantes.', 'BAIXA', 'PENDENTE', '2025-07-11', 2);
 
 -- Tarefas para Maria Oliveira (user_id = 3)
-INSERT INTO tb_task(title, description, priority, status, dead_line, user_id, category_id) VALUES ('Revisar relatório financeiro', 'Analisar o relatório do último trimestre e preparar resumo para a diretoria.', 'ALTA', 'PENDENTE', '2025-07-18', 3, 5);
-INSERT INTO tb_task(title, description, priority, status, dead_line, user_id, category_id) VALUES ('Organizar a festa de fim de ano da empresa', 'Contratar o buffet e o local.', 'MEDIA', 'EM_ANDAMENTO', '2025-09-30', 3, 2);
+INSERT INTO tb_task(title, description, priority, status, dead_line, user_id) VALUES ('Revisar relatório financeiro', 'Analisar o relatório do último trimestre e preparar resumo para a diretoria.', 'ALTA', 'PENDENTE', '2025-07-18', 3);
+INSERT INTO tb_task(title, description, priority, status, dead_line, user_id) VALUES ('Organizar a festa de fim de ano da empresa', 'Contratar o buffet e o local.', 'MEDIA', 'EM_ANDAMENTO', '2025-09-30', 3);
+
+-- -----------------------------------------------------
+-- Tabela de Junção `tb_task_category` (NOVO)
+-- -----------------------------------------------------
+-- A tarefa 1 (consulta) tem as tags "Pessoal" (ID 1) e "Saúde" (ID 4)
+INSERT INTO tb_task_category(task_id, category_id) VALUES (1, 1);
+INSERT INTO tb_task_category(task_id, category_id) VALUES (1, 4);
+
+-- A tarefa 2 (fatura) tem as tags "Pessoal" (ID 1) e "Financeiro" (ID 5)
+INSERT INTO tb_task_category(task_id, category_id) VALUES (2, 1);
+INSERT INTO tb_task_category(task_id, category_id) VALUES (2, 5);
+
+-- A tarefa 3 (apresentação) tem a tag "Trabalho" (ID 2)
+INSERT INTO tb_task_category(task_id, category_id) VALUES (3, 2);

@@ -3,8 +3,8 @@ package com.lucas.taskmanager.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_category")
@@ -20,7 +20,7 @@ public class Category {
     private Long id;
     private String name;
 
-    @OneToMany(mappedBy = "category")
-    private List<Task> tasks = new ArrayList<>();
+    @ManyToMany(mappedBy = "categories")
+    private Set<Task> tasks = new HashSet<>();
 
 }

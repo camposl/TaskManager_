@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Getter
 @NoArgsConstructor
@@ -18,6 +19,9 @@ public class TaskDTO {
     private  String priority;
     private String status;
     private LocalDate deadLine;
+    private Long userId;
+    private String userName;
+    private Set<CategoryDTO> categories;
 
     public TaskDTO(Task entity) {
         id = entity.getId();
@@ -26,5 +30,11 @@ public class TaskDTO {
         priority = entity.getPriority();
         status = entity.getStatus();
         deadLine = entity.getDeadLine();
+        userId = entity.getUser().getId();
+        userName = entity.getUser().getName();
+        categories = entity.getCategories().stream()
+                .map(CategoryDTO::new)
+                .collect(java.util.stream.Collectors.toSet());
+
     }
 }
